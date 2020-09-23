@@ -1,8 +1,7 @@
-#ifndef MATRIX_HPP
-#define MATRIX_HPP
+#ifndef SRC_DS_MATRIX_HPP
+#define SRC_DS_MATRIX_HPP
 
 #include <algorithm>
-#include <assert.h>
 #include <cstddef>
 
 // See explanation for template classes and friend functions here:
@@ -78,7 +77,8 @@ void Matrix<T>::operator=(const Matrix<T>& other) {
 
 template <typename T>
 T& Matrix<T>::operator()(size_t r, size_t c) {
-    // Check if in bounds.
+    // Check if in bounds (no need to check for negative since size_t is
+    // unsigned).
     if (r >= rows) throw "Row index out of bounds";
     if (c >= cols) throw "Column index out of bounds";
 
@@ -98,5 +98,5 @@ bool operator==(const Matrix<T>& lhs, const Matrix<T>& rhs) {
     return true;
 }
 
-#endif /* MATRIX_HPP */
+#endif /* SRC_DS_MATRIX_HPP */
 
